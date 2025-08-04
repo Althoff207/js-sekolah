@@ -95,7 +95,7 @@
 //     this.model = model;
 //     this.color = color;
 //     this.weight = weight;
-    
+
 //     this.start = function() {
 //         console.log(`${this.name} dinyalakan.`);
 //     };
@@ -115,7 +115,7 @@
 //     this.model = model;
 //     this.color = color;
 //     this.weight = weight;
-    
+
 //     this.start = function() {
 //         console.log(`${this.name} sepeda dikayuh.`);
 //     };
@@ -145,7 +145,6 @@
 //     }
 // }
 
-
 // let car1 = new Car("White Ferarri", 2021, "White");
 // car1.start();
 
@@ -165,32 +164,58 @@
 //     }
 // }
 
-
 // let bike1 = new Bike("Cervello S5", 2025, "Red");
 // bike1.start();
 
-class Student {
-    constructor(name, department, year) {
-        this.name = name;
-        this.department = department;
-        this.year = year;
-    }
+//
 
-    introduce() {
-        console.log(`Halo saya ${this.name}, mahasiswa ${this.department} angkatan ${this.year}.`)
-    }
+//inheritance
 
-    isSenior() {
-        // let a = this.year;
-        // let b = 2025;
-        // let senior = a < b;
+// class Animal {
+//     constructor(name) {
+//         this.name = name;
+//     }
+//     eat() {
+//         console.log(`${this.name} sedang makan.`);
+//     }
+// }
 
-        // console.log(`${senior} Senior.`)
-        return this.year < 2025;
-    }
+// class Cat extends Animal {
+//     constructor(name, color) {
+//         super(name);
+//         this.color = color;
+//     }
+//     meow() {
+//         console.log(`${this.name}  si ${this.color} mengeong.`);
+//     }
+// }
+
+// const kucing = new Cat("Ewo", "Putih");
+// kucing.eat();
+// kucing.meow();
+
+class Employee {
+  constructor(name, position, salary) {
+    this.name = name;
+    this.position = position;
+    this.salary = salary;
+  }
+  budak() {
+    console.log(`${this.name} posisinya ${this.position} gaji ${this.salary}`);
+  }
 }
 
+class Manager extends Employee {
+  constructor(name, position, salary, department) {
+    super(name, position, salary);
+    this.department = department;
+  }
+  lead() {
+    console.log(`${this.name} memimpin departemen ${this.department}.`);
+  }
+}
 
-let student1 = new Student("Althoff", "Teknik Informatika", 2021);
-student1.introduce();
-console.log(student1.isSenior())
+const employee = new Employee("Franz", "Budak", "seribu");
+const manager = new Manager("Rasyah", "kesehatan", "satu juta", "produksi");
+employee.budak();
+manager.lead();
