@@ -194,28 +194,117 @@
 // kucing.eat();
 // kucing.meow();
 
-class Employee {
-  constructor(name, position, salary) {
-    this.name = name;
-    this.position = position;
-    this.salary = salary;
-  }
-  budak() {
-    console.log(`${this.name} posisinya ${this.position} gaji ${this.salary}`);
+// class Employee {
+//   constructor(name, position, salary) {
+//     this.name = name;
+//     this.position = position;
+//     this.salary = salary;
+//   }
+//   budak() {
+//     console.log(`${this.name} posisinya ${this.position} gaji ${this.salary}`);
+//   }
+// }
+
+// class Manager extends Employee {
+//   constructor(name, position, salary, department) {
+//     super(name, position, salary);
+//     this.department = department;
+//   }
+//   lead() {
+//     console.log(`${this.name} memimpin departemen ${this.department}.`);
+//   }
+// }
+
+// const employee = new Employee("Franz", "Budak", "seribu");
+// const manager = new Manager("Rasyah", "kesehatan", "satu juta", "produksi");
+// employee.budak();
+// manager.lead();
+
+// class Animal {
+//   speak() {
+//     console.log("Hewan bersuara...");
+//   }
+// }
+
+// class Cat extends Animal {
+//   speak() {
+//     console.log("Meong~");
+//   }
+// }
+
+// const c = new Cat();
+// c.speak();
+
+// class BankAccouunt {
+//   constructor() {
+//     this._balance = 0;
+//   }
+
+//   deposit(amount) {
+//     this._balance += amount;
+//   }
+
+//   showBalance() {
+//     console.log(`Saldo saat ini: Rp${this._balance}`);
+//   }
+// }
+
+// const akun = new BankAccouunt();
+// akun.deposit(500000);
+// akun.showBalance();
+
+// akun._balance = 9999999;
+// akun.showBalance();
+
+// class SecureAccount {
+//   #balance = 0;
+
+//   deposit(amount) {
+//     this.#balance += amount;
+//   }
+
+//   showBalance() {
+//     console.log(`Saldo aman: Rp${this.#balance}`);
+//   }
+// }
+
+// const akun = new SecureAccount();
+// akun.deposit(500);
+// // akun.#balance = 9999;
+// akun.showBalance();
+
+// class Wallet {
+//   #pin = 1234;
+
+//   getPin() {
+//     return this.#pin;
+//   }
+// }
+
+// const dompet = new Wallet();
+// console.log(dompet.getPin());
+
+ class Message {
+  send() {
+    console.log("mengirim pesan umum");
   }
 }
 
-class Manager extends Employee {
-  constructor(name, position, salary, department) {
-    super(name, position, salary);
-    this.department = department;
-  }
-  lead() {
-    console.log(`${this.name} memimpin departemen ${this.department}.`);
+class Email extends Message {
+  send() {
+    console.log("mengirim email ke pengguna");
   }
 }
 
-const employee = new Employee("Franz", "Budak", "seribu");
-const manager = new Manager("Rasyah", "kesehatan", "satu juta", "produksi");
-employee.budak();
-manager.lead();
+class SMS extends Message {
+  send() {
+    console.log("mengirim sms ke nomor penerima");
+  }
+}
+
+const m2 = new Message();
+const m3 = new Email();
+const m4 = new SMS();
+m2.send();
+m3.send();
+m4.send();
