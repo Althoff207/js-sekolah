@@ -284,27 +284,46 @@
 // const dompet = new Wallet();
 // console.log(dompet.getPin());
 
- class Message {
-  send() {
-    console.log("mengirim pesan umum");
-  }
+// class Message {
+//   send() {
+//     console.log("mengirim pesan umum");
+//   }
+// }
+
+// class Email extends Message {
+//   send() {
+//     console.log("mengirim email ke pengguna");
+//   }
+// }
+
+// class SMS extends Message {
+//   send() {
+//     console.log("mengirim sms ke nomor penerima");
+//   }
+// }
+
+// const m2 = new Message();
+// const m3 = new Email();
+// const m4 = new SMS();
+// m2.send();
+// m3.send();
+// m4.send();
+
+class User {
+    #password;
+    constructor(password) {
+        this.#password = password;
+    }
+
+    checkPassword(input) {
+        if (input === this.#password) {
+            console.log("benar");
+        } else {
+            console.log("salah");
+        }
+    }
 }
 
-class Email extends Message {
-  send() {
-    console.log("mengirim email ke pengguna");
-  }
-}
 
-class SMS extends Message {
-  send() {
-    console.log("mengirim sms ke nomor penerima");
-  }
-}
-
-const m2 = new Message();
-const m3 = new Email();
-const m4 = new SMS();
-m2.send();
-m3.send();
-m4.send();
+const user = new User("rahasia");
+user.checkPassword("rahasia");
