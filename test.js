@@ -309,21 +309,461 @@
 // m3.send();
 // m4.send();
 
-class User {
-    #password;
-    constructor(password) {
-        this.#password = password;
-    }
+// class User {
+//     #password;
+//     constructor(password) {
+//         this.#password = password;
+//     }
 
-    checkPassword(input) {
-        if (input === this.#password) {
-            console.log("benar");
-        } else {
-            console.log("salah");
-        }
-    }
-}
+//     checkPassword(input) {
+//         if (input === this.#password) {
+//             console.log("benar");
+//         } else {
+//             console.log("salah");
+//         }
+//     }
+// }
 
 
-const user = new User("rahasia");
-user.checkPassword("rahasia");
+// const user = new User("rahasia");
+// user.checkPassword("rahasia");
+
+// latihan
+
+// class Book {
+//     constructor(title, author) {
+//         this.title = title;
+//         this.author = author;
+//     }
+
+//     info() {
+//         console.log(`${this.title} oleh ${this.author}`);
+//     }
+// }
+
+// class Ebook extends Book {
+//     // #filesize = 0;
+
+//     constructor(title, author, fileSize) {
+//         super(title, author);
+//         this.fileSize = fileSize;
+//     }
+
+//     info() {
+//         console.log(`${this.title} oleh ${this.author}, ukuran file: ${this.fileSize} MB`);
+//     }
+// }
+
+// const buku = new Book("Filosoi Teras", "Henry Manampiring");
+// buku.info();
+
+// const ebook = new Ebook("Atomic Habits", "James Clear", "2");
+// ebook.info();
+
+// class HotelRoom {
+//     #isBooked = false;
+
+//     bookRoom() {
+//         this.#isBooked = true;
+//     }
+
+//     checkStatus() {
+//         console.log(`${this.#isBooked ? "Kamar sudah dipesan." : "Kamar tersedia."}`);
+//     }
+// }
+
+// const room = new HotelRoom();
+// room.checkStatus();
+// room.bookRoom();
+// room.checkStatus();
+
+// class Product {
+//     constructor(name) {
+//         this.name = name;
+//     }
+//     display() {
+//         console.log(`${this.name} ini adalah produk yang berkualitas.`);
+//     }
+// }
+
+// class Clothing extends Product {
+//     constructor(name, size) {
+//         super(name);
+//         this.size = size;
+//     }
+
+//     display() {
+//         console.log(`Produk: ${this.name}, Ukuran: ${this.size}`);
+//     }
+// }
+
+// const product = new Product("Sepatu");
+// product.display();
+
+// const shirt = new Clothing("Kaos", "L");
+// shirt.display();
+
+// class Ticket {
+//     constructor(event, price) {
+//         this.event = event;
+//         this.price = price;
+//     }
+
+//     printTicket() {
+//         console.log(`Tiket untuk acara ${this.event} seharga Rp${this.price}`);
+//     }
+// }
+
+// class VIPTicket extends Ticket {
+//     printTicket() {
+//         console.log(`Tiket untuk acara ${this.event} seharga Rp${this.price} (VIP)`);
+//     }
+// }
+
+// const regularTicket = new Ticket("Konser Musik", 100000);
+// const vipTicket = new VIPTicket("Konser Musik", 500000);
+
+// if (regularTicket.price > 100000) {
+//     // Tiket VIP
+//     new VIPTicket(regularTicket.event, regularTicket.price).printTicket();
+// } else {
+//     // Tiket biasa
+//     regularTicket.printTicket();
+// }
+
+// if (vipTicket.price > 100000) {
+//     vipTicket.printTicket();
+// } else {
+//     new Ticket(vipTicket.event, vipTicket.price).printTicket();
+// }
+
+// class Animal {
+//     #energy = 0; 
+
+//     getEnergy() {
+//         return this.#energy;
+//     }
+
+//     eat(amount) {
+//         this.#energy += amount;
+//         if (this.#energy > 100) this.#energy = 100;
+//         console.log(`Energi setelah makan: ${this.#energy}`);
+//     }
+
+//     sleep(time) {
+//         this.#energy += time * 2;
+//         if (this.#energy > 100) this.#energy = 100;
+//         console.log(`Energi setelah tidur: ${this.#energy}`);
+//     }
+// }
+
+// class Dog extends Animal {
+//     eat(amount) {
+//         super.eat(amount * 2);
+//     }
+// }
+
+// // Contoh penggunaan:
+// const dog = new Dog();
+// dog.eat(10);
+// dog.sleep(50);
+// console.log("Energi sekarang:", dog.getEnergy());
+
+// class Account {
+//     #balance = 0;
+
+//     getBalance() {
+//         return this.#balance;
+//     }
+
+//     deposit(amount) {
+//         if (amount > 0) {
+//             this.#balance += amount;
+//         }
+//     }
+
+//     withdraw(amount) {
+//         if (amount > 0 && this.#balance - amount >= 0) {
+//             this.#balance -= amount;
+//         } else {
+//             console.log("Penarikan ditolak: saldo tidak cukup.");
+//         }
+//     }
+// }
+
+// class SavingsAccount extends Account {
+//     withdraw(amount) {
+//         const maxWithdraw = this.getBalance() * 0.5;
+//         if (amount > maxWithdraw) {
+//             console.log("Penarikan ditolak: tidak boleh lebih dari 50% saldo.");
+//         } else {
+//             super.withdraw(amount);
+//         }
+//     }
+// }
+
+// // Contoh penggunaan:
+// const acc = new Account();
+// acc.deposit(1000);
+// acc.withdraw(300);
+// console.log("Saldo Account:", acc.getBalance());
+
+// const saving = new SavingsAccount();
+// saving.deposit(1000);
+// saving.withdraw(100);
+// saving.withdraw(400);
+// console.log("Saldo SavingsAccount:", saving.getBalance());
+
+//  class Vehicle {
+//     #speed = 0
+
+//     accelerate(amount) {
+//         this.#speed = Math.min(180, this.#speed + amount)
+//     }
+
+//     brake(amount) {
+//         this.#speed = Math.max(0, this.#speed - amount)
+//     }
+
+//     getSpeed() {
+//         return this.#speed
+//     }
+// }
+
+// class Car extends Vehicle {
+//     accelerate(amount) {
+//         console.log("Car accelerating")
+//         super.accelerate(amount)
+//     }
+// }
+
+// const myCar = new Car()
+// myCar.accelerate(50)
+// console.log(`Kecepatan: ${myCar.getSpeed()} km/jam`)
+// myCar.brake(20)
+// console.log(`Kecepatan: ${myCar.getSpeed()} km/jam`)
+
+// class Employee {
+//     #workingHours = 0
+
+//     logHours(hours) {
+//         this.#workingHours += hours
+//         console.log(`Total jam kerja: ${this.#workingHours}`)
+//     }
+
+//     getHours() {
+//         return this.#workingHours
+//     }
+// }
+
+// class RemoteEmployee extends Employee {
+//     logHours(hours) {
+//         if (hours > 8) {
+//             console.log("Exceeded daily work limit")
+//         } else {
+//             super.logHours(hours)
+//         }
+//     }
+// }
+
+// const emp1 = new RemoteEmployee()
+// emp1.logHours(1)
+// emp1.logHours(9)
+
+// class Airplane {
+//     #altitude = 0
+
+//     ascend(meters) {
+//         this.#altitude = Math.min(12000, this.#altitude + meters)
+//     }
+
+//     descend(meters) {
+//         this.#altitude = Math.max(0, this.#altitude - meters)
+//     }
+
+//     getAltitude() {
+//         return this.#altitude
+//     }
+// }
+
+// class Jet extends Airplane {
+//     ascend(meters) {
+//         super.ascend(meters * 2)
+//     }
+// }
+
+// const jet1 = new Jet()
+// jet1.ascend(2000)
+// console.log(`Ketinggian: ${jet1.getAltitude()} meter`)
+// jet1.descend(500)
+// console.log(`Ketinggian: ${jet1.getAltitude()} meter`)
+
+//Part 10
+// class ParkingSpot {
+//     #isOccupied = false
+
+//     occupy() {
+//         if (!this.#isOccupied) {
+//             this.#isOccupied = true
+//             console.log("Spot occupied")
+//         } else {
+//             console.log("Spot already occupied")
+//         }
+//     }
+
+//     vacate() {
+//         if (this.#isOccupied) {
+//             this.#isOccupied = false
+//             console.log("Spot vacated")
+//         } else {
+//             console.log("Spot is already empty")
+//         }
+//     }
+// }
+
+// class ElectricParkingSpot extends ParkingSpot {
+//     occupy(isElectric) {
+//         if (!isElectric) {
+//             console.log("Only electric cars allowed")
+//         } else {
+//             super.occupy()
+//         }
+//     }
+// }
+
+// const spot1 = new ElectricParkingSpot()
+// spot1.occupy(false)
+// spot1.occupy(true)
+// spot1.vacate()
+
+//Part 11
+// class User {
+//     #password
+
+//     constructor(password) {
+//         this.#password = password
+//     }
+
+//     checkPassword(input) {
+//         if (input === this.#password) {
+//             console.log("Benar")
+//         } else {
+//             console.log("Salah")
+//         }
+//     }
+// }
+
+// const user1 = new User("rahasia123")
+// user1.checkPassword("rahasia123")
+// user1.checkPassword("password")
+
+//Part 12
+// class Vehicle {
+//     move() {
+//         console.log("Kendaraan bergerak")
+//     }
+// }
+
+// class Car extends Vehicle {
+//     move() {
+//         console.log("Mobil berjalan di jalan raya")
+//     }
+// }
+
+// class Boat extends Vehicle {
+//     move() {
+//         console.log("Perahu berlayar di laut")
+//     }
+// }
+
+// const v = new Vehicle()
+// const c = new Car()
+// const b = new Boat()
+
+// v.move()
+// c.move()
+// b.move()
+
+//Part 13
+// class Order {
+//     #status = "Pending"
+
+//     get status() {
+//         return this.#status
+//     }
+
+//     set status(newStatus) {
+//         if (newStatus === "Delivered" || newStatus === "Cancelled") {
+//             this.#status = newStatus
+//         } else {
+//             console.log("Status tidak valid")
+//         }
+//     }
+// }
+
+// const order1 = new Order()
+// console.log(order1.status)
+
+// order1.status = "Delivered"
+// console.log(order1.status)
+
+// order1.status = "Processing"
+// console.log(order1.status)
+
+//Part 14
+// class Payment {
+//     #amount
+
+//     constructor(amount) {
+//         this.#amount = amount
+//     }
+
+//     getAmount() {
+//         return this.#amount
+//     }
+
+//     process() {
+//         console.log(`Memproses pembayaran sebesar ${this.#amount}`)
+//     }
+// }
+
+// class CreditCardPayment extends Payment {
+//     process() {
+//         console.log(`Memproses pembayaran kartu kredit sebesar ${this.getAmount()}`)
+//     }
+// }
+
+// const pay1 = new Payment(500000)
+// pay1.process()
+
+// const pay2 = new CreditCardPayment(750000)
+// pay2.process()
+
+//Part 15
+// class Account {
+//     #balance = 0
+
+//     constructor(balance = 0) {
+//         this.#balance = balance
+//     }
+
+//     getBalance() {
+//         return this.#balance
+//     }
+
+//     showBalance() {
+//         console.log(`Saldo: ${this.#balance}`)
+//     }
+// }
+
+// class PremiumAccount extends Account {
+//     showBalance() {
+//         console.log(`Saldo anda adalah: ${this.getBalance()} (Akun Premium)`)
+//     }
+// }
+
+// const acc1 = new Account(500000)
+// acc1.showBalance()
+
+// const acc2 = new PremiumAccount(2000000)
+// acc2.showBalance()
